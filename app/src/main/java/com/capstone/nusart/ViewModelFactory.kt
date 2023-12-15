@@ -5,11 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.nusart.data.Datarepository
 import com.capstone.nusart.dependency_injection.InjectionManager
-import com.farhanadi.horryapp.user_ui_page.add.AddViewModel
-import com.farhanadi.horryapp.user_ui_page.ui.home.HomeViewModel
-import com.farhanadi.horryapp.user_ui_page.login.LoginViewModel
-import com.farhanadi.horryapp.user_ui_page.signup.SignUpViewModel
-import com.farhanadi.horryapp.user_ui_page.ui.map.MapViewModel
+import com.capstone.nusart.ui_page.login.LoginViewModel
+import com.capstone.nusart.ui_page.signup.SignUpViewModel
+
 
 class ViewModelFactory(
     private val repository: Datarepository
@@ -26,9 +24,6 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(repository) as T
-            }
-            modelClass.isAssignableFrom(AddViewModel::class.java) -> {
-                AddViewModel (repository) as T
             }
             modelClass.isAssignableFrom(MapViewModel::class.java) -> {
                 MapViewModel (repository) as T
