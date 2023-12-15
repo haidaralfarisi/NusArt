@@ -57,4 +57,11 @@
     <string name="tv_Arab_language">Arab</string>
     <string name="tv_Germany_language">Germany</string>
     <string name="tv_France_language">France</string>
+    <string name="edit_profile_username">User Name</string>
+    <string name="no_hp">No. Hp</string>
+    <string name="gender">Gender</string>
+    <string name="address">Address</string>
+    <string name="btn_submit_edit_profile">Tombol Submit</string>
+    <string name="submit_button_edti_profile">Submit</string>
+    <string name="button_back">Button back</string>
 </resources>
