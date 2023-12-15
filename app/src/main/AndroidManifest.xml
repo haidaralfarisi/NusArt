@@ -13,16 +13,16 @@
         android:theme="@style/Theme.NusArt"
         tools:targetApi="31">
         <activity
-            android:name=".view.signup.SignupActivity"
+            android:name=".ui_page.signup.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".view.login.LoginActivity"
+            android:name=".ui_page.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.welcome.WelcomeActivity"
+            android:name=".ui_page.welcome.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui_page.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.nusart
+package com.capstone.nusart
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

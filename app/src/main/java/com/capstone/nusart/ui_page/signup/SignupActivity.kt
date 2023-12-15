@@ -1,8 +1,8 @@
-package com.example.nusart.view.signup
+package com.capstone.nusart.ui_page.signup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nusart.R
+import com.capstone.nusart.R
 
 class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

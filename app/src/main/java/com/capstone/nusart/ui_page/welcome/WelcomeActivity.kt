@@ -1,8 +1,8 @@
-package com.example.nusart.view.welcome
+package com.capstone.nusart.ui_page.welcome
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nusart.R
+import com.capstone.nusart.R
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

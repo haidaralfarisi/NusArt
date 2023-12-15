@@ -1,4 +1,4 @@
-package com.example.nusart
+package com.capstone.nusart
 
 import org.junit.Test
 
