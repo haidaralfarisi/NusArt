@@ -15,13 +15,32 @@
     <string name="logout">Logout</string>
     <string name="or">OR</string>
     <string name="avatar_paint">avatar_paint</string>
-    <string name="paint_name">Nama lukisan:</string>
-    <string name="jenis_lukisan">Jenis lukisan</string>
+    <string name="paint_name">Nama lukisan :</string>
+    <string name="jenis_lukisan">Jenis lukisan :</string>
     <string name="searchbar_hint">Search Painter</string>
 
-    <string name="title_home">Home</string>
-    <string name="title_camera">Camera</string>
-    <string name="title_profile">Notifications</string>
+    <string name="home_navtext">Home</string>
+    <string name="camera_navtext">Camera</string>
+    <string name="Map_navtext">Map</string>
+    <string name="Profile_navtext">Profile</string>
+
     <string name="mau_cari">Mau Cari lukisan apa hari ini?</string>
     <string name="name_paint">Monalisa</string>
+
+    <string name="iv2_content_desc_item">Foto Lukisan</string>
+
+    <string name="iv1_content_desc_language">Kembali ke profile</string>
+    <string name="btn1_content_desc_language">Ganti Bahasa Indonesia</string>
+    <string name="btn2_content_desc_language">Ganti Bahasa Inggris</string>
+    <string name="btn3_content_desc_language">Ganti bahasa Jepang</string>
+    <string name="btn4_content_desc_language">Ganti Bahasa Arab</string>
+    <string name="btn5_content_desc_language">Ganti Bahasa Germany</string>
+    <string name="btn6_content_desc_language">Ganti bahasa France</string>
+
+    <string name="tv_indonesia_language">Indonesia</string>
+    <string name="tv_English_language">Inggris</string>
+    <string name="tv_Japan_language">Japan</string>
+    <string name="tv_Arab_language">Arab</string>
+    <string name="tv_Germany_language">Germany</string>
+    <string name="tv_France_language">France</string>
 </resources>
