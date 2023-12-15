@@ -2,7 +2,7 @@
     <string name="app_name">NusArt</string>
     <string name="signup">Signup</string>
     <string name="login">Login</string>
-    <string name="message_welcome_page">lets discover Indonesian paintings with us</string>
+    <string name="message_welcome_page">Lets Discover Indonesian Paintings With Us!</string>
     <string name="title_welcome_page">Welcome to NusArt</string>
     <string name="title_signup_page">Input Your Biodata</string>
     <string name="email">Email</string>
@@ -24,4 +24,7 @@
     <string name="title_profile">Notifications</string>
     <string name="mau_cari">Mau Cari lukisan apa hari ini?</string>
     <string name="name_paint">Monalisa</string>
+    <string name="welcome_image">welcome image</string>
+    <string name="image_login">image login</string>
+    <string name="image_signup">image signup</string>
 </resources>

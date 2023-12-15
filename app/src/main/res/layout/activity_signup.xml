@@ -9,14 +9,15 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="242dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:srcCompat="@drawable/signup_image" />
+        app:srcCompat="@drawable/image_signup"
+        android:contentDescription="@string/image_signup" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -149,7 +150,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/color_primary"
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
