@@ -19,6 +19,20 @@
     <string name="jenis_lukisan">Jenis lukisan :</string>
     <string name="searchbar_hint">Search Painter</string>
 
+    <string name="email_login">Email</string>
+    <string name="pass_login">Password</string>
+    <string name="title_signup">Sign Up</string>
+    <string name="desc_signup">Silahkan lengkapi data berikut</string>
+
+    <string name="login_buttonpage">Masuk</string>
+    <string name="title_login">Login</string>
+    <string name="desc_login">Silahkan isi email dan password \n untuk login</string>
+    <string name="signup_buttonpage">Daftar</string>
+    <string name="signup_msg_bottom">Sudah punya akun?</string>
+    <string name="signup_msg_bottom2">Masuk</string>
+    <string name="login_msg_bottom">Belum punya akun?</string>
+    <string name="login_msg_bottom2">Daftar</string>
+
     <string name="home_navtext">Home</string>
     <string name="camera_navtext">Camera</string>
     <string name="Map_navtext">Map</string>

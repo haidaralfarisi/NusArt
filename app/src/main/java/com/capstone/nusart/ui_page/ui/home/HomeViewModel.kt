@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.farhanadi.horryapp.user_data.DataRepository
-import com.farhanadi.horryapp.user_data.api.response.ListStoryItem
+import com.capstone.nusart.data.DataRepository
+import com.capstone.nusart.data.api.response.ListArt
 
 class HomeViewModel(
     private val repository: DataRepository
 ) : ViewModel() {
-    fun getStory(token: String): LiveData<PagingData<ListStoryItem>> =
-        repository.getStories(token).cachedIn(viewModelScope)
+    fun getStory(token: String): LiveData<PagingData<ListArt>> =
+        repository.getArt(token).cachedIn(viewModelScope)
 }

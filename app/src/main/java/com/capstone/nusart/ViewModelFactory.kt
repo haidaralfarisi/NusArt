@@ -7,6 +7,8 @@ import com.capstone.nusart.data.Datarepository
 import com.capstone.nusart.dependency_injection.InjectionManager
 import com.capstone.nusart.ui_page.login.LoginViewModel
 import com.capstone.nusart.ui_page.signup.SignUpViewModel
+import com.capstone.nusart.ui_page.ui.home.HomeViewModel
+import com.capstone.nusart.ui_page.ui.map.MapViewModel
 
 
 class ViewModelFactory(

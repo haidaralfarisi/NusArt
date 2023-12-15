@@ -51,7 +51,7 @@ class Datarepository (
         }
     }
 
-    fun getStories(token: String): LiveData<PagingData<ListArt>> {
+    fun getArt(token: String): LiveData<PagingData<ListArt>> {
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
             config = PagingConfig(
