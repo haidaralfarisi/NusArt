@@ -14,4 +14,14 @@
     <string name="greeting">Halo %1$s,</string>
     <string name="logout">Logout</string>
     <string name="or">OR</string>
+    <string name="avatar_paint">avatar_paint</string>
+    <string name="paint_name">Nama lukisan:</string>
+    <string name="jenis_lukisan">Jenis lukisan</string>
+    <string name="searchbar_hint">Search Painter</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_profile">Notifications</string>
+    <string name="mau_cari">Mau Cari lukisan apa hari ini?</string>
+    <string name="name_paint">Monalisa</string>
 </resources>
