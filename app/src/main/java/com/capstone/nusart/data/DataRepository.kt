@@ -17,6 +17,10 @@ import com.capstone.nusart.data.local_database.ArtDataStorage
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
+class DataRepository(
+    private val storyDatabase: ArtDataStorage,
+    private val apiService: ApiService
+)
 class Datarepository (
     private val ArtDatabase: ArtDataStorage,
     private val apiService: ApiService)

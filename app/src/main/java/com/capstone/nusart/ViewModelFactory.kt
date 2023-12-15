@@ -5,15 +5,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.nusart.data.Datarepository
 import com.capstone.nusart.dependency_injection.InjectionManager
+import com.capstone.nusart.ui_page.login.LoginViewModel
+import com.capstone.nusart.ui_page.signup.SignUpViewModel
 import com.farhanadi.horryapp.user_ui_page.add.AddViewModel
 import com.farhanadi.horryapp.user_ui_page.ui.home.HomeViewModel
 import com.farhanadi.horryapp.user_ui_page.login.LoginViewModel
 import com.farhanadi.horryapp.user_ui_page.signup.SignUpViewModel
 import com.farhanadi.horryapp.user_ui_page.ui.map.MapViewModel
 
-class ViewModelFactory(
-    private val repository: Datarepository
-) : ViewModelProvider.NewInstanceFactory(){
+class ViewModelFactory(private val repository: Datarepository) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
