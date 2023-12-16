@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.nusart.R
@@ -16,6 +17,7 @@ import com.capstone.nusart.data.api.response.ListArt
 import com.capstone.nusart.databinding.FragmentHomeBinding
 import com.capstone.nusart.preference_manager.LanguageManager
 import com.capstone.nusart.preference_manager.UserManager
+import com.capstone.nusart.ui_page.Favorite.FavoriteActivity
 import com.capstone.nusart.ui_page.detail.DetailActivity
 import com.capstone.nusart.ui_page.ui.home.category.CategoryAdapter
 import com.capstone.nusart.ui_page.ui.home.category.CategoryModel
@@ -25,10 +27,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.Locale
 
+
 class HomeFragment : Fragment(), HomeAdapter.Listener {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var storyAdapter: HomeAdapter
+    private lateinit var ArtAdapter: HomeAdapter
     private lateinit var categoryRecyclerView: RecyclerView
     private lateinit var preferences: UserManager
     private lateinit var factory: ViewModelFactory
@@ -42,8 +45,8 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        categoryRecyclerView = view.findViewById(R.id.categoryRecyclerView)
-        setupCategoryRecyclerView()
+        //categoryRecyclerView = view.findViewById(R.id.categoryRecyclerView)
+        //setupCategoryRecyclerView()
 
         return binding.root
     }
@@ -53,7 +56,7 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
         setupLanguage()
         setupAction()
         setupProperty()
-        setStory()
+        setArtList()
     }
 
     private fun setupLanguage() {
@@ -64,8 +67,8 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
     }
 
     private fun setupAction() {
-        binding.btnAddStory.setOnClickListener {
-            startActivity(Intent(requireActivity(), AddStoryActivity::class.java))
+        binding.btnAddFavorite.setOnClickListener {
+            startActivity(Intent(requireActivity(), FavoriteActivity::class.java))
         }
     }
 
@@ -74,24 +77,24 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
         preferences = UserManager(requireActivity())
     }
 
-    private fun setStory() {
+    private fun setArtList() {
         val token = preferences.getToken() ?: ""
         val userToken = "Bearer $token"
 
-        storyAdapter = HomeAdapter(this)
-        binding.rvStories.layoutManager = LinearLayoutManager(requireActivity())
-        binding.rvStories.setHasFixedSize(true)
-        binding.rvStories.adapter = storyAdapter.withLoadStateFooter(
+        ArtAdapter = HomeAdapter(this)
+        binding.rvArtlibrary.layoutManager = LinearLayoutManager(requireActivity())
+        binding.rvArtlibrary.setHasFixedSize(true)
+        binding.rvArtlibrary.adapter = ArtAdapter.withLoadStateFooter(
             footer = HomeStateAdapter {
-                storyAdapter.retry()
+                ArtAdapter.retry()
             }
         )
 
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
-            val storyResponse = viewModel.getStory(userToken)
+            val storyResponse = viewModel.getArt(userToken)
             withContext(Dispatchers.Main) {
                 storyResponse.observe(viewLifecycleOwner) { storyData ->
-                    storyAdapter.submitData(lifecycle, storyData)
+                    ArtAdapter.submitData(lifecycle, storyData)
                     binding.homeprogressBar.hide()
                 }
             }

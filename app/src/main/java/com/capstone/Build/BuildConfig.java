@@ -11,4 +11,5 @@ public final class BuildConfig {
   public static final String VERSION_NAME = "1.0";
   // Field from default config.
   public static final String BASE_URL = "https://story-api.dicoding.dev/v1/";
+  //public static final String BASE_URL = "www.test.com/arts";
 }

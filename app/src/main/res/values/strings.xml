@@ -81,8 +81,12 @@
     <string name="btn_submit_edit_profile">Tekan untuk submit data</string>
 
     <string name="favorite_title">Favorit</string>
+    <string name="item_txt_loading">Sesi Expired</string>
+    <string name="item_btn_loading">Coba Lagi</string>
 
+    <string name="to_favorite">Ke halaman Favorite</string>
 
+    <string name="change_language">Ganti Bahasa</string>
     <string name="languange_settings">Ganti Bahasa</string>
     <string name="logout_app">Keluar Aplikasi</string>
     <string name="iv1_content_desc_profile">Foto Profil User</string>

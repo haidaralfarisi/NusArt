@@ -12,4 +12,8 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
 }

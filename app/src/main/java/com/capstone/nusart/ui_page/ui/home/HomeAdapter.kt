@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.capstone.nusart.R
 import com.capstone.nusart.data.api.response.ListArt
-import com.farhanadi.horryapp.R
-import com.farhanadi.horryapp.databinding.ItemStoryBinding
-import com.farhanadi.horryapp.user_data.api.response.ListStoryItem
+import com.capstone.nusart.databinding.ItemListBinding
 
 class HomeAdapter(private val listener: Listener) :
-    PagingDataAdapter<ListStoryItem, HomeAdapter.MyViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<ListArt, HomeAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = getItem(position)
@@ -23,13 +22,13 @@ class HomeAdapter(private val listener: Listener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
-            ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
-    inner class MyViewHolder(private val binding: ItemStoryBinding) :
+    inner class MyViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ListStoryItem) {
+        fun bind(item: ListArt) {
             val radius = 24
 
             val requestOptions = RequestOptions()
@@ -38,13 +37,12 @@ class HomeAdapter(private val listener: Listener) :
                 .error(R.drawable.baseline_broken_image_24)
 
             Glide.with(binding.imgHome.context)
-                .load(item.photoUrl)
+                .load(item.imageurl)
                 .apply(requestOptions)
                 .into(binding.imgHome)
 
-            binding.txtNameHome.text = item.name
-            binding.createdAt.text = item.createdAt
-            binding.tvDesc.text = item.description
+            binding.tvPaintname.text = item.title
+            binding.tvPaintgenre.text = item.genre
 
             binding.root.setOnClickListener {
                 listener.onListener(item)
