@@ -66,4 +66,5 @@
     <string name="button_back">Button back</string>
     <string name="edit_profile_appbar">Edit Profile</string>
     <string name="change_language">Change Language</string>
+    <string name="favorit">Favorit</string>
 </resources>
