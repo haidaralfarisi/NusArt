@@ -1,10 +1,26 @@
 package com.capstone.nusart.ui_page.signup
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.text.InputType
+import android.view.WindowInsets
+import android.view.WindowManager
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
+import com.capstone.nusart.R
 import com.capstone.nusart.ViewModelFactory
+import com.capstone.nusart.data.ResultResource
 import com.capstone.nusart.databinding.ActivitySignupBinding
+import com.capstone.nusart.ui_page.login.LoginActivity
+import com.capstone.nusart.ui_page.utils.hide
+import com.capstone.nusart.ui_page.utils.show
+import com.capstone.nusart.ui_page.welcome.WelcomeActivity
+import java.util.regex.Pattern
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
@@ -17,5 +33,139 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupView()
+        setupAction()
+
+    }
+
+    private fun setupView() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
+    }
+
+    private fun setupAction() {
+        binding.btnBackSignup.setOnClickListener {
+            startActivity(Intent(this, WelcomeActivity::class.java))
+            finish()
+        }
+
+        binding.tvSignupMsgbottom2.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
+        val edRegisPassword = binding.edRegisterPassword
+        val icShowPass = binding.icShowPass
+        binding.icShowPass.setOnClickListener{
+            togglePasswordVisibility(edRegisPassword, icShowPass)
+        }
+
+        binding.buttonSignup.setOnClickListener {
+            validate()
+        }
+    }
+
+    private fun togglePasswordVisibility(edLoginPassword: EditText, icShowPass: ImageView) {
+        val inputType = if (edLoginPassword.inputType == (InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+            InputType.TYPE_CLASS_TEXT
+        } else {
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+
+        edLoginPassword.inputType = inputType
+        val font = ResourcesCompat.getFont(this, R.font.font2_poppins_regular)
+        edLoginPassword.typeface = font
+        icShowPass.setImageResource(if (inputType == InputType.TYPE_CLASS_TEXT) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24)
+        edLoginPassword.setSelection(edLoginPassword.text.length)
+    }
+
+    private fun validate() {
+        val name = binding.edRegisterName.text.toString()
+        val email = binding.edRegisterEmail.text.toString()
+        val password = binding.edRegisterPassword.text.toString()
+
+        when {
+            name.isEmpty() -> {
+                binding.edRegisterName.error = "Input Your Name"
+                binding.edRegisterName.requestFocus()
+            }
+            email.isEmpty() -> {
+                binding.edRegisterEmail.error = "Input Your Email"
+                binding.edRegisterEmail.requestFocus()
+            }
+            !isEmailValid(email) -> {
+                binding.edRegisterEmail.error = "Invalid Email Address"
+                binding.edRegisterEmail.requestFocus()
+            }
+            password.isEmpty() -> {
+                binding.edRegisterPassword.error = "Input your Password"
+                binding.edRegisterPassword.requestFocus()
+            }
+            else -> {
+                register()
+            }
+        }
+    }
+
+    private fun isEmailValid(email: String): Boolean {
+        val pattern = Pattern.compile(
+            "^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,4})+\$",
+            Pattern.CASE_INSENSITIVE
+        )
+        val matcher = pattern.matcher(email)
+        return matcher.matches()
+    }
+
+    private fun register() {
+        val name = binding.edRegisterName.text.toString()
+        val email = binding.edRegisterEmail.text.toString()
+        val password = binding.edRegisterPassword.text.toString()
+
+        viewModel.register(name, email, password).observe(this) { response ->
+            when (response) {
+                is ResultResource.Loading -> {
+                    binding.progressBar.show()
+                }
+                is ResultResource.Success -> {
+                    binding.progressBar.hide()
+                    showSuccessDialog()
+                }
+                is ResultResource.Error -> {
+                    binding.progressBar.hide()
+                    showErrorDialog()
+                }
+                else -> {}
+            }
+        }
+    }
+
+
+    private fun showSuccessDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.registration_success)
+        builder.setMessage(R.string.registration_createacc_success)
+        builder.setPositiveButton("OK") { _, _ ->
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun showErrorDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.registration_failed)
+        builder.setMessage(R.string.registration_email_already_haveacc)
+        builder.setPositiveButton("OK") { _, _ -> }
+        val dialog = builder.create()
+        dialog.show()
     }
 }

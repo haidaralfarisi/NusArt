@@ -67,4 +67,9 @@
     <string name="edit_profile_appbar">Edit Profile</string>
     <string name="change_language">Change Language</string>
     <string name="favorit">Favorit</string>
+
+    <string name="registration_success">Registrasi Berhasil</string>
+    <string name="registration_createacc_success">Akun berhasil dibuat!</string>
+    <string name="registration_failed">Registrasi Gagal</string>
+    <string name="registration_email_already_haveacc">Email sudah terdaftar!</string>
 </resources>
