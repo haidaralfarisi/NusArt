@@ -1,4 +1,4 @@
-package com.farhanadi.horryapp.user_data.local_database
+package com.capstone.nusart.data.local_database
 
 import androidx.room.Dao
 import androidx.room.Insert

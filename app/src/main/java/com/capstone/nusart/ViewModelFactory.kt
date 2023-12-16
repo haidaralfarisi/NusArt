@@ -3,7 +3,7 @@ package com.capstone.nusart
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.capstone.nusart.data.Datarepository
+import com.capstone.nusart.data.DataRepository
 import com.capstone.nusart.dependency_injection.InjectionManager
 import com.capstone.nusart.ui_page.login.LoginViewModel
 import com.capstone.nusart.ui_page.signup.SignUpViewModel
@@ -12,7 +12,7 @@ import com.capstone.nusart.ui_page.ui.map.MapViewModel
 
 
 class ViewModelFactory(
-    private val repository: Datarepository
+    private val repository: DataRepository
 ) : ViewModelProvider.NewInstanceFactory(){
 
     @Suppress("UNCHECKED_CAST")

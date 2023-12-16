@@ -5,8 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.capstone.nusart.data.api.response.ListArt
-import com.farhanadi.horryapp.user_data.local_database.RemotePaginationKeys
-import com.farhanadi.horryapp.user_data.local_database.RemotePaginationKeysDao
 
 @Database(
     entities = [ListArt::class, RemotePaginationKeys::class],

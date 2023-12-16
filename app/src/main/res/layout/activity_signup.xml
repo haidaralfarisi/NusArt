@@ -298,7 +298,6 @@
         android:background="@drawable/bg_color_btnungu"
         android:fontFamily="@font/font3_poppins_semibold"
         android:text="@string/signup_buttonpage"
-        android:contentDescription="@string/btn1_content_desc_signup"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -337,7 +336,6 @@
             android:fontFamily="@font/font3_poppins_semibold"
             android:paddingLeft="5dp"
             android:text="@string/signup_msg_bottom2"
-            android:contentDescription="@string/btn2_content_desc_signup"
             android:textColor="@color/color_primary" />
     </LinearLayout>
 

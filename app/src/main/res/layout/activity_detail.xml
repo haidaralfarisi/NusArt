@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.detail.DetailActivity">
+    tools:context=".ui_page.detail.DetailActivity">
 
     <View
         android:id="@+id/background"
@@ -22,7 +22,6 @@
         android:layout_marginTop="32dp"
         android:contentDescription="@string/avatar_paint"
         android:scaleType="centerCrop"
-        android:background="@drawable/rounded_image_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

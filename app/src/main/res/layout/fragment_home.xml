@@ -1,36 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- fragment_home.xml -->
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/fragment_home"
+    tools:context=".ui_page.ui.home.HomeFragment">
 
-    <!-- SearchView with background image -->
-    <SearchView
-        android:id="@+id/searchView"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_color_search"
-        android:queryHint="Search products"/>
+        android:layout_height="match_parent">
 
-    <!-- Horizontal Category List -->
-    <RecyclerView
-        android:id="@+id/categoryRecyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mau Cari Lukisan apa hari ini?"
+                android:textColor="@color/black"
+                android:fontFamily="@font/font3_poppins_semibold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_welcome"
+                android:layout_marginTop="5dp"
+                android:text="List Lukisan"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font3_poppins_semibold"
+                tools:layout_editor_absoluteY="32dp"
+                tools:layout_editor_absoluteX="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_welcome"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_artlibrary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/container_title"
+            android:layout_marginTop="0dp"
+            android:paddingHorizontal="5dp"
+            tools:listitem="@layout/item_list" />
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/color_primary"
+        android:contentDescription="@string/to_favorite"
+        android:src="@drawable/baseline_favorite_24"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        app:tint="@null" />
+
+    <!-- Add this code below the FloatingActionButton -->
+
+
+    <!-- The rest of your layout remains unchanged -->
+
+    <!-- SearchView -->
+
+
+
+    <ProgressBar
+        android:id="@+id/homeprogressBar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/searchView"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:scrollbars="horizontal" />
+        android:layout_height="match_parent"
+        android:padding="160dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/color_primary"
+        android:indeterminateTintMode="src_atop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
 
-    <!-- Product List using RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/categoryRecyclerView"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:scrollbars="vertical" />
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

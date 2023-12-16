@@ -221,7 +221,6 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="42dp"
         android:alpha="0"
-        android:contentDescription="@string/btn1_content_desc_login"
         android:background="@drawable/bg_color_btnungu"
         android:fontFamily="@font/font3_poppins_semibold"
         android:text="@string/login_buttonpage"
@@ -260,7 +259,6 @@
             android:layout_weight="1"
             android:fontFamily="@font/font3_poppins_semibold"
             android:paddingLeft="5dp"
-            android:contentDescription="@string/btn2_content_desc_login"
             android:text="@string/login_msg_bottom2"
             android:textColor="@color/color_primary" />
     </LinearLayout>

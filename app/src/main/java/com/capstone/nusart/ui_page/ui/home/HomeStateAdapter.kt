@@ -6,7 +6,8 @@ import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.farhanadi.horryapp.databinding.ItemLoadingBinding
+import com.capstone.nusart.databinding.ItemLoadingBinding
+
 
 class HomeStateAdapter(private val retry: () -> Unit) :
     LoadStateAdapter<HomeStateAdapter.LoadingStateViewHolder>() {
