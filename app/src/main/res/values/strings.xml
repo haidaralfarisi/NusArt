@@ -65,4 +65,5 @@
     <string name="submit_button_edti_profile">Submit</string>
     <string name="button_back">Button back</string>
     <string name="edit_profile_appbar">Edit Profile</string>
+    <string name="change_language">Change Language</string>
 </resources>
