@@ -46,7 +46,7 @@
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:fontFamily="@font/font3_poppins_semibold"
-                    android:text="@string/favorit"
+                    android:text="@string/favorite_title"
                     />
 
             </com.google.android.material.appbar.MaterialToolbar>

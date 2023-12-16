@@ -61,6 +61,23 @@
 
     <string name="profile_appbar">Profil saya</string>
     <string name="tv_profile">User</string>
+
+    <string name="registration_success">Registrasi Berhasil</string>
+    <string name="registration_createacc_success">Akun berhasil dibuat!</string>
+    <string name="registration_failed">Registrasi Gagal</string>
+    <string name="registration_email_already_haveacc">Email sudah terdaftar!</string>
+
+    <string name="edit_profile_appbar">Edit Profile</string>
+    <string name="edit_profile_username">Username</string>
+    <string name="edit_profile_nohp">No Hp</string>
+    <string name="edit_profile_gender">Jenis Kelamin</string>
+    <string name="edit_profile_address">Alamat</string>
+    <string name="edit_profile_submit">Submit</string>
+    <string name="btn_submit_edit_profile">Tekan untuk submit data</string>
+
+    <string name="favorite_title">Favorit</string>
+
+
     <string name="languange_settings">Ganti Bahasa</string>
     <string name="logout_app">Keluar Aplikasi</string>
     <string name="iv1_content_desc_profile">Foto Profil User</string>
