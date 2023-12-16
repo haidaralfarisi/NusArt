@@ -67,4 +67,8 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_DATA = "extra_data"
     }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
 }

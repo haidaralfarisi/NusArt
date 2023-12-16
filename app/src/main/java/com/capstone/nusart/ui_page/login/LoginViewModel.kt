@@ -3,7 +3,7 @@ package com.capstone.nusart.ui_page.login
 import androidx.lifecycle.ViewModel
 import com.capstone.nusart.data.DataRepository
 
-class LoginViewModel (
+class LoginViewModel(
     private val repository: DataRepository
 
 ) : ViewModel(){

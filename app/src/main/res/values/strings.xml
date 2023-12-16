@@ -58,6 +58,11 @@
     <string name="tv_Germany_language">Germany</string>
     <string name="tv_France_language">France</string>
 
+    <string name="login_tit_dialog">Login Berhasil</string>
+    <string name="login_con_dialog">Ceritakanlah cerita seremmu itu!!!</string>
+
+    <string name="login_tit_dialogerr">Login Gagal</string>
+    <string name="login_con_dialogerr">Coba cek lagi Email &amp; Password kamu yaa!!!</string>
 
     <string name="profile_appbar">Profil saya</string>
     <string name="tv_profile">User</string>
