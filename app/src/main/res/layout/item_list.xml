@@ -32,7 +32,8 @@
                 android:contentDescription="@string/iv2_content_desc_item"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/content_preview_text"
@@ -61,7 +62,7 @@
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sample_image" />
+                    app:layout_constraintTop_toBottomOf="@id/img_home" />
 
                 <TextView
                     android:id="@+id/tv_paintgenre"
@@ -77,7 +78,7 @@
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sample_image" />
+                    app:layout_constraintTop_toBottomOf="@id/img_home" />
 
             </LinearLayout>
 

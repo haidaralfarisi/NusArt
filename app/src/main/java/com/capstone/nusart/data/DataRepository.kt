@@ -18,13 +18,9 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
 class DataRepository(
-    private val storyDatabase: ArtDataStorage,
+    private val artDatabase: ArtDataStorage,
     private val apiService: ApiService
-)
-class Datarepository (
-    private val ArtDatabase: ArtDataStorage,
-    private val apiService: ApiService)
-{
+) {
     fun register(
         name: String,
         email: String,
@@ -57,9 +53,9 @@ class Datarepository (
             config = PagingConfig(
                 pageSize = 5
             ),
-            remoteMediator = ListPaginationMediator(ArtDatabase, apiService, token),
+            remoteMediator = ListPaginationMediator(artDatabase, apiService, token),
             pagingSourceFactory = {
-                ArtDatabase.ArtDao().getArt()
+                artDatabase.ArtDao().getArt()
             }
         ).liveData
     }
