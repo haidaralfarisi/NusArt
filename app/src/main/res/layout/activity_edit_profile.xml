@@ -18,6 +18,19 @@
         android:contentDescription="@string/button_back" />
 
     <TextView
+        android:id="@+id/txt_edit_profile_appbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font3_poppins_semibold"
+        android:text="@string/edit_profile_appbar"
+        android:layout_marginTop="24sp"
+        android:layout_marginStart="88dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_back_edit_profile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/edit_profile_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,7 +90,7 @@
 
 
     <TextView
-        android:id="@+id/signup_email_text"
+        android:id="@+id/edit_profile_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -105,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_email_text"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_email"
         tools:alpha="100">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,7 +127,7 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/ed_register_email"
+                android:id="@+id/ed_email"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="8dp"
@@ -148,7 +161,7 @@
         tools:alpha="100" />
 
     <LinearLayout
-        android:id="@+id/linearlayout4_inputpass"
+        android:id="@+id/linearlayout4_nohp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -172,7 +185,7 @@
 
 
             <EditText
-                android:id="@+id/ed_register_password"
+                android:id="@+id/ed_nohp"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="8dp"
@@ -200,7 +213,7 @@
         android:text="@string/gender"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout4_inputpass"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout4_nohp"
         tools:alpha="100" />
 
     <LinearLayout
@@ -260,7 +273,7 @@
         tools:alpha="100" />
 
     <LinearLayout
-        android:id="@+id/linearlayout6_input_alamat"
+        android:id="@+id/linearlayout6_input_address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -318,7 +331,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout6_input_alamat"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout6_input_address"
         tools:alpha="100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
