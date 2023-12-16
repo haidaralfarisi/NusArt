@@ -13,4 +13,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
 }

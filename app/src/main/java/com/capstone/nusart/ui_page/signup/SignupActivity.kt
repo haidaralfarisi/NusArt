@@ -1,11 +1,16 @@
 package com.capstone.nusart.ui_page.signup
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.viewModels
@@ -16,10 +21,12 @@ import com.capstone.nusart.R
 import com.capstone.nusart.ViewModelFactory
 import com.capstone.nusart.data.ResultResource
 import com.capstone.nusart.databinding.ActivitySignupBinding
+import com.capstone.nusart.preference_manager.LanguageManager
 import com.capstone.nusart.ui_page.login.LoginActivity
 import com.capstone.nusart.ui_page.utils.hide
 import com.capstone.nusart.ui_page.utils.show
 import com.capstone.nusart.ui_page.welcome.WelcomeActivity
+import java.util.Locale
 import java.util.regex.Pattern
 
 class SignupActivity : AppCompatActivity() {
@@ -34,9 +41,23 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.progressBar.hide()
+
+        setupLanguage()
         setupView()
         setupAction()
+        setupProperty()
+        playAnimation()
+        setupKeyboardClosing()
 
+    }
+
+    private fun setupLanguage() {
+        val language = LanguageManager.getLanguage(this)
+
+        val config = resources.configuration
+        config.setLocale(Locale(language))
+        resources.updateConfiguration(config, resources.displayMetrics)
     }
 
     private fun setupView() {
@@ -71,6 +92,49 @@ class SignupActivity : AppCompatActivity() {
         binding.buttonSignup.setOnClickListener {
             validate()
         }
+    }
+
+    private fun setupProperty(){
+        factory = ViewModelFactory.getInstance(this)
+    }
+
+    private fun playAnimation() {
+
+        val imgSignupAnimator = ObjectAnimator.ofFloat(binding.imgSignup, View.TRANSLATION_X, -30f, 30f)
+        imgSignupAnimator.apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }
+
+
+        val title = ObjectAnimator.ofFloat(binding.signupTitle, View.ALPHA, 1f).setDuration(300)
+        val desc = ObjectAnimator.ofFloat(binding.signupDesc, View.ALPHA, 1f).setDuration(300)
+        val nameTextView = ObjectAnimator.ofFloat(binding.signupNameText, View.ALPHA, 1f).setDuration(300)
+        val nameEditTextLayout = ObjectAnimator.ofFloat(binding.linearlayout2Inputname, View.ALPHA, 1f).setDuration(300)
+        val emailTextView = ObjectAnimator.ofFloat(binding.signupEmailText, View.ALPHA, 1f).setDuration(300)
+        val emailEditTextLayout = ObjectAnimator.ofFloat(binding.linearlayout3Inputemail, View.ALPHA, 1f).setDuration(300)
+        val passwordTextView = ObjectAnimator.ofFloat(binding.signupPasswordText, View.ALPHA, 1f).setDuration(300)
+        val passwordEditTextLayout = ObjectAnimator.ofFloat(binding.linearlayout4Inputpass, View.ALPHA, 1f).setDuration(300)
+        val login = ObjectAnimator.ofFloat(binding.buttonSignup, View.ALPHA, 1f).setDuration(300)
+        val register = ObjectAnimator.ofFloat(binding.linearlayout5Msgbottom, View.ALPHA, 1f).setDuration(300)
+
+
+        AnimatorSet().apply {
+            playSequentially(
+                title,
+                desc,
+                nameTextView,
+                nameEditTextLayout,
+                emailTextView,
+                emailEditTextLayout,
+                passwordTextView,
+                passwordEditTextLayout,
+                login,
+                register
+            )
+            startDelay = 100
+        }.start()
     }
 
     private fun togglePasswordVisibility(edLoginPassword: EditText, icShowPass: ImageView) {
@@ -147,6 +211,25 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupKeyboardClosing() {
+        val rootLayout = findViewById<View>(android.R.id.content)
+        rootLayout.setOnTouchListener { _, _ ->
+            currentFocus?.let { focusedView ->
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager
+                imm?.hideSoftInputFromWindow(focusedView.windowToken, 0)
+                focusedView.clearFocus()
+            }
+            false
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, WelcomeActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
     private fun showSuccessDialog() {
         val builder = AlertDialog.Builder(this)
