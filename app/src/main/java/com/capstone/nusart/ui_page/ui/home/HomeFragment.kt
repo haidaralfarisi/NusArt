@@ -9,14 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.farhanadi.horryapp.ViewModelFactory
-import com.farhanadi.horryapp.databinding.FragmentHomeBinding
-import com.farhanadi.horryapp.preferences_manager.LanguageManager
-import com.farhanadi.horryapp.preferences_manager.UserManager
-import com.farhanadi.horryapp.user_data.api.response.ListStoryItem
-import com.farhanadi.horryapp.user_ui_page.add.AddStoryActivity
-import com.farhanadi.horryapp.user_ui_page.detail.DetailActivity
-import com.farhanadi.horryapp.user_ui_page.utils.hide
+import androidx.recyclerview.widget.RecyclerView
+import com.capstone.nusart.R
+import com.capstone.nusart.ViewModelFactory
+import com.capstone.nusart.data.api.response.ListArt
+import com.capstone.nusart.databinding.FragmentHomeBinding
+import com.capstone.nusart.preference_manager.LanguageManager
+import com.capstone.nusart.preference_manager.UserManager
+import com.capstone.nusart.ui_page.detail.DetailActivity
+import com.capstone.nusart.ui_page.ui.home.category.CategoryAdapter
+import com.capstone.nusart.ui_page.ui.home.category.CategoryModel
+import com.capstone.nusart.ui_page.utils.hide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -26,6 +29,7 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var storyAdapter: HomeAdapter
+    private lateinit var categoryRecyclerView: RecyclerView
     private lateinit var preferences: UserManager
     private lateinit var factory: ViewModelFactory
 
@@ -34,11 +38,13 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        categoryRecyclerView = view.findViewById(R.id.categoryRecyclerView)
+        setupCategoryRecyclerView()
+
         return binding.root
     }
 
@@ -92,7 +98,24 @@ class HomeFragment : Fragment(), HomeAdapter.Listener {
         }
     }
 
-    override fun onListener(story: ListStoryItem) {
+    private fun setupCategoryRecyclerView() {
+        val categoryList = createCategoryList() // Replace with your actual category data
+        val adapter = CategoryAdapter(categoryList)
+        categoryRecyclerView.adapter = adapter
+        categoryRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun createCategoryList(): List<CategoryModel> {
+        // Replace this with your actual category data (name and image resource ID)
+        return listOf(
+            CategoryModel("All", R.drawable.all_category),
+            CategoryModel("Abstrak", R.drawable.abstract_category),
+            CategoryModel("Realisme", R.drawable.realisme_category)
+        )
+    }
+
+    override fun onListener(story: ListArt) {
         startActivity(
             Intent(requireActivity(), DetailActivity::class.java)
                 .putExtra(DetailActivity.EXTRA_DATA, story)

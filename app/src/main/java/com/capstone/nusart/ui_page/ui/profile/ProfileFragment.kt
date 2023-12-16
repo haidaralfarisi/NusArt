@@ -11,12 +11,12 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.farhanadi.horryapp.R
-import com.farhanadi.horryapp.databinding.FragmentProfileBinding
-import com.farhanadi.horryapp.preferences_manager.LanguageManager
-import com.farhanadi.horryapp.preferences_manager.UserManager
-import com.farhanadi.horryapp.user_ui_page.welcome.WelcomeActivity
-import com.farhanadi.horryapp.user_ui_page.language_page.LanguageActivity
+import com.capstone.nusart.R
+import com.capstone.nusart.databinding.FragmentProfileBinding
+import com.capstone.nusart.preference_manager.LanguageManager
+import com.capstone.nusart.preference_manager.UserManager
+import com.capstone.nusart.ui_page.language.LanguageActivity
+import com.capstone.nusart.ui_page.welcome.WelcomeActivity
 import java.util.Locale
 
 class ProfileFragment : Fragment() {

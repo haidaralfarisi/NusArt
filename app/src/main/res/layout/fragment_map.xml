@@ -5,7 +5,7 @@
     android:id="@+id/ini_activity_map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user_ui_page.ui.map.MapFragment">
+    tools:context=".ui_page.ui.map.MapFragment">
 
     <!-- Back Button -->
     <Button
@@ -14,10 +14,10 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/color_secondary"
+        android:backgroundTint="@color/color_primary"
         android:text="@string/btnback_map"
         android:textColor="@color/white"
-        android:textSize="10dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,8 +28,8 @@
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="160dp"
-        android:backgroundTint="@color/color_secondary"
-        android:text="+"
+        android:backgroundTint="@color/color_primary"
+        android:text="@string/btn_zoomin_map"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,9 +41,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/color_secondary"
+        android:backgroundTint="@color/color_primary"
         android:fontFamily="@font/font5_poppinsbold"
-        android:text="-"
+        android:text="@string/btn_zoomout_map"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,72 +63,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <!-- Maps Option -->
-    <Button
-        android:id="@+id/btnShowMapOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="108dp"
-        android:backgroundTint="@color/color_secondary"
-        android:text="@string/btn_showtext_map"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btnHybrid"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="?android:selectableItemBackground"
-        android:scaleType="centerCrop"
-        android:visibility="gone"
-        android:contentDescription="@string/ib_hybrid"
-        android:src="@drawable/hybrid_map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnTerrain" />
-
-    <ImageButton
-        android:id="@+id/btnTerrain"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="8dp"
-        android:background="?android:selectableItemBackground"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/ib_terrain"
-        android:visibility="gone"
-        android:src="@drawable/terrain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btnSatellite"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="?android:selectableItemBackground"
-        android:visibility="gone"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/ib_satellite"
-        android:src="@drawable/satellite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnDefault" />
-
-    <ImageButton
-        android:id="@+id/btnDefault"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:scaleType="centerCrop"
-        android:visibility="gone"
-        android:contentDescription="@string/ib_default"
-        android:background="?android:selectableItemBackground"
-        android:src="@drawable/default_map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnHybrid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

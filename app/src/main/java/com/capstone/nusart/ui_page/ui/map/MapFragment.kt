@@ -15,13 +15,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.farhanadi.horryapp.R
-import com.farhanadi.horryapp.ViewModelFactory
-import com.farhanadi.horryapp.databinding.FragmentMapBinding
-import com.farhanadi.horryapp.preferences_manager.UserManager
-import com.farhanadi.horryapp.user_data.ResultResource
-import com.farhanadi.horryapp.user_data.api.response.ListStoryItem
-import com.farhanadi.horryapp.user_ui_page.home.MainActivity
+import com.capstone.nusart.R
+import com.capstone.nusart.ViewModelFactory
+import com.capstone.nusart.data.api.response.ListArt
+import com.capstone.nusart.databinding.FragmentMapBinding
+import com.capstone.nusart.preference_manager.UserManager
+import com.capstone.nusart.ui_page.main.MainActivity
+import com.capstone.nusart.data.ResultResource
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -52,7 +52,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         //setupView()
         setupProperty()
         setupAction()
-        getStoryMap()
+        //getStoryMap()
 
         return root
     }
@@ -74,6 +74,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         preferences = UserManager(requireActivity())
     }
 
+    /*
     private fun getStoryMap() {
         val token = "Bearer ${preferences.getToken()}"
         viewModel.getWithLocation(1, token).observe(requireActivity()) { response ->
@@ -97,7 +98,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-    private fun showMarker(listStory: List<ListStoryItem>) {
+
+
+    private fun showMarker(listStory: List<ListArt>) {
         for (story in listStory) {
             val latLng = LatLng(story.lat, story.lon)
             mMap.addMarker(
@@ -108,7 +111,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             )
         }
     }
-
+    */
     private fun setupAction() {
         binding.btnBack.setOnClickListener {
             startActivity(Intent(requireActivity(), MainActivity::class.java))
@@ -127,6 +130,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    /*
     private fun setMapStyle() {
         try {
             val success =
@@ -137,7 +141,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         } catch (exception: Resources.NotFoundException) {
             Log.e(TAG, "Can't find style. Error: ", exception)
         }
-    }
+    }*/
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -161,37 +165,18 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private fun configureMap() {
         mMap.uiSettings.isZoomControlsEnabled = false
         enableMyLocation()
-        setMapStyle()
+       // setMapStyle()
 
         // Find your buttons in the binding
-        val btnShowMapOptions = binding.root.findViewById<Button>(R.id.btnShowMapOptions)
         val btnZoomIn = binding.root.findViewById<Button>(R.id.btnZoomIn)
         val btnZoomOut = binding.root.findViewById<Button>(R.id.btnZoomOut)
-        val btnTerrain = binding.root.findViewById<ImageButton>(R.id.btnTerrain)
-        val btnHybrid = binding.root.findViewById<ImageButton>(R.id.btnHybrid)
-        val btnDefault = binding.root.findViewById<ImageButton>(R.id.btnDefault)
-        val btnSatellite = binding.root.findViewById<ImageButton>(R.id.btnSatellite)
+
 
         // Set click listeners for zoom in and zoom out
         btnZoomIn.setOnClickListener { zoomIn() }
         btnZoomOut.setOnClickListener { zoomOut() }
 
         // Set up map type buttons
-        btnShowMapOptions.setOnClickListener {
-            // Toggle visibility of map options buttons
-            btnTerrain.visibility =
-                if (btnTerrain.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            btnHybrid.visibility =
-                if (btnHybrid.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            btnDefault.visibility =
-                if (btnDefault.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            btnSatellite.visibility =
-                if (btnSatellite.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-        }
-        btnTerrain.setOnClickListener { changeMapType(GoogleMap.MAP_TYPE_TERRAIN) }
-        btnHybrid.setOnClickListener { changeMapType(GoogleMap.MAP_TYPE_HYBRID) }
-        btnDefault.setOnClickListener { changeMapType(GoogleMap.MAP_TYPE_NORMAL) }
-        btnSatellite.setOnClickListener { changeMapType(GoogleMap.MAP_TYPE_SATELLITE) }
     }
 
     private fun zoomIn() {

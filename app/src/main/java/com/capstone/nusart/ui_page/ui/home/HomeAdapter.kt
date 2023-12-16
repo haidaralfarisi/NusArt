@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.capstone.nusart.data.api.response.ListArt
 import com.farhanadi.horryapp.R
 import com.farhanadi.horryapp.databinding.ItemStoryBinding
 import com.farhanadi.horryapp.user_data.api.response.ListStoryItem
@@ -52,18 +53,18 @@ class HomeAdapter(private val listener: Listener) :
     }
 
     interface Listener {
-        fun onListener(story: ListStoryItem)
+        fun onListener(story: ListArt)
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListStoryItem>() {
-            override fun areItemsTheSame(oldItem: ListStoryItem, newItem: ListStoryItem): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListArt>() {
+            override fun areItemsTheSame(oldItem: ListArt, newItem: ListArt): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: ListStoryItem,
-                newItem: ListStoryItem
+                oldItem: ListArt,
+                newItem: ListArt
             ): Boolean {
                 return oldItem == newItem
             }

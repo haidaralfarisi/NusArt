@@ -57,4 +57,21 @@
     <string name="tv_Arab_language">Arab</string>
     <string name="tv_Germany_language">Germany</string>
     <string name="tv_France_language">France</string>
+
+
+    <string name="profile_appbar">Profil saya</string>
+    <string name="tv_profile">User</string>
+    <string name="languange_settings">Ganti Bahasa</string>
+    <string name="logout_app">Keluar Aplikasi</string>
+    <string name="iv1_content_desc_profile">Foto Profil User</string>
+    <string name="btn1_content_desc_profile">Mengganti Bahasa</string>
+    <string name="btn2_content_desc_profile">keluar Aplikasi</string>
+
+    <string name="btn_zoomin_map">+</string>
+    <string name="btn_zoomout_map">-</string>
+    <string name="btnback_map">Kembali</string>
+
+    <string name="logout_alert">Yakin ingin melakukan Logout?</string>
+    <string name="logout_title">Keluar</string>
+
 </resources>

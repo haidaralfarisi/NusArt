@@ -11,6 +11,6 @@ import com.capstone.nusart.data.api.response.ListArt
 class HomeViewModel(
     private val repository: DataRepository
 ) : ViewModel() {
-    fun getStory(token: String): LiveData<PagingData<ListArt>> =
+    fun getArt(token: String): LiveData<PagingData<ListArt>> =
         repository.getArt(token).cachedIn(viewModelScope)
 }
